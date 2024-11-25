@@ -1,0 +1,22 @@
+package com.springboot.project.graphql.postgres.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.springboot.project.graphql.postgres.model.Product;
+import com.springboot.project.graphql.postgres.repository.ProductRepository;
+
+public class ProductService {
+	
+//	@Autowired
+	private ProductRepository repository;
+	
+	public List<Product> getProducts() {
+		return repository.findAll();
+	}
+	
+	public List<Product> getProductsByCategory(String category) {
+		return repository.findByCategory(category);
+	}
+}

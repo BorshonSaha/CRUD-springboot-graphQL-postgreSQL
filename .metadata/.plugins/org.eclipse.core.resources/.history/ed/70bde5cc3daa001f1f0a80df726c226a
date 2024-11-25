@@ -1,0 +1,5 @@
+package com.springboot.project.graphql.postgres.controller;
+
+public class ProductController {
+
+}

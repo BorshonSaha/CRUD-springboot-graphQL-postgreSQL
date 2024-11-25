@@ -1,0 +1,5 @@
+package com.springboot.project.graphql.postgres.model;
+
+public class Product {
+
+}
