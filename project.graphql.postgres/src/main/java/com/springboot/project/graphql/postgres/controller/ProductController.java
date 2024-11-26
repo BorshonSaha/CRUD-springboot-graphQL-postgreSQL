@@ -47,4 +47,11 @@ public class ProductController {
 	    service.deleteProduct(id);
 	    return "Product with id " + id + " has been deleted successfully.";
 	}
+	
+
+	@MutationMapping
+	public List<Product> searchByName(@Argument String name) {
+		return service.searchByName(name);
+	}
+	
 }

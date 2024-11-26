@@ -16,4 +16,5 @@ type Mutation {
 	recieveNewShipment(id: ID, quantity: Int): Product
 	addProduct(name: String, category: String, price: Float, stock: Int): Product
 	deleteProduct(id: ID): String
+	searchByName(name: String): [Product]
 }

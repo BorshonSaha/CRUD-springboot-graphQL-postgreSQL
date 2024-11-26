@@ -1,6 +1,7 @@
 package com.springboot.project.graphql.postgres.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -54,4 +55,15 @@ public class ProductService {
 	            .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
 	    repository.delete(existingProduct);
 	}
+	
+
+//	search by name
+	public List<Product> searchByName(String name) {
+		List<Product> existingProduct = repository.findAll();
+		return existingProduct.stream()
+	            .filter(product -> product.getName() != null &&
+	                               product.getName().toLowerCase().contains(name.toLowerCase()))
+	            .collect(Collectors.toList());
+	}
+
 }
